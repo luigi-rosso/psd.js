@@ -33,10 +33,10 @@ PSD.Color = function(header, colorModeData, channels) {
 PSD.Color.prototype.parse = function() {
   switch (this.header.colorMode) {
     case PSD.ColorMode.BITMAP:
-      window.console.error('bitmap color mode not supported');
+      console.error('bitmap color mode not supported');
       break;
     case PSD.ColorMode.DUOTONE:
-      window.console.warn('duotone color mode implementation is incomplete');
+      console.warn('duotone color mode implementation is incomplete');
       /* FALLTHROUGH */
     case PSD.ColorMode.GRAYSCALE:
       this.fromGrayscale();
@@ -45,7 +45,7 @@ PSD.Color.prototype.parse = function() {
       this.fromIndexedColor();
       break;
     case PSD.ColorMode.MULTICHANNEL_COLOR:
-      window.console.warn('multichannel color mode implementation is incomplete');
+      console.warn('multichannel color mode implementation is incomplete');
       /* FALLTHROUGH */
     case PSD.ColorMode.RGB_COLOR:
       this.fromRGB();
@@ -68,6 +68,7 @@ PSD.Color.prototype.fromRGB = function() {
   var g = this.greenChannel = this.channel[1];
   /** @type {!(Array.<number>|Uint8Array)} */
   var b = this.blueChannel  = this.channel[2];
+  this.alphaChannel = this.channel[3]
   /** @type {!(Array.<number>|Uint8Array)} */
   var a;
   /** @type {number} */

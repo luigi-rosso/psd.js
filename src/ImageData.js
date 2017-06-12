@@ -102,5 +102,48 @@ PSD.ImageData.prototype.createCanvas = function(header, colorModeData) {
   return canvas;
 };
 
+
+PSD.ImageData.prototype.createBytes = function(header, colorModeData) {
+
+  /** @type {number} */
+  var width = header.columns;
+  /** @type {number} */
+  var height = header.rows;
+  /** @type {ImageData} */
+  var imageData;
+  var pixelArray;
+  /** @type {number} */
+  var x;
+  /** @type {number} */
+  var y;
+  /** @type {number} */
+  var index;
+  /** @type {Array.<!(Array.<number>|Uint8Array)>} */
+  var color = new PSD.Color(header, colorModeData, this.image.channel).toRGBA();
+  if (width <= 0 || height <= 0) {
+    return null;
+  }
+
+  pixelArray = new Uint8ClampedArray(4 * width * height);
+
+  var r = color[0];
+  var g = color[1];
+  var b = color[2];
+  var a = color[3];
+
+  for (y = 0; y < height; ++y) {
+    for (x = 0; x < width; ++x) {
+      index = (y * width + x);
+      pixelArray[index * 4    ] = r[index];
+      pixelArray[index * 4 + 1] = g[index];
+      pixelArray[index * 4 + 2] = b[index];
+      pixelArray[index * 4 + 3] = a ? a[index] : 255;//color[3][index];
+      //pixelArray[index * 4 + 3] = channels[3] ? channels[3][index] : 255;
+    }
+  }
+
+  return pixelArray;
+};
+
 /// end of scope
 });

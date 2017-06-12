@@ -50,7 +50,7 @@ PSD.LayerMaskData.prototype.parse = function(stream) {
   this.length = length + 4;
 
   if (length === 0) {
-    window.console.log("skip: layer mask data (empty body)");
+    console.log("skip: layer mask data (empty body)");
     return;
   }
 

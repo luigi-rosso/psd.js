@@ -36,6 +36,7 @@
     <java jar="${compiler}" fork="true" failonerror="true">
       <arg line="--warning_level=VERBOSE"/>
       <arg line="--compilation_level=${level}"/>
+      <arg line="--externs=externs.js"/>
       <arg line="--define=goog.DEBUG=false"/>
       <arg line="--define=EXPORT_PSD_PARSER=true"/>
       <arg line="--output_wrapper='(function() {%output%}).call(this);'"/>

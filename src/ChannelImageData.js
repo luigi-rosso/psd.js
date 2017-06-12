@@ -137,7 +137,7 @@ PSD.ChannelImageData.prototype.createCanvas = function(header, colorModeData, la
         mask = channels[i].channel;
         break;
       default:
-        window.console.warn("not supported channel id", layerRecord.info[i].id);
+        console.warn("not supported channel id", layerRecord.info[i].id);
         continue;
     }
   }
