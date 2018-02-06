@@ -47,8 +47,8 @@ PSD.PathRecord.prototype.parse = function(stream) {
   switch (type) {
     case 0: // closed subpath length record
     case 3: // open subpath length record
-      goog.global.console.log('record type: subpath length record, opened:', type === 0);
-      goog.global.console.log('path length:', stream.readInt16());
+      console.log('record type: subpath length record, opened:', type === 0);
+      console.log('path length:', stream.readInt16());
       stream.seek(22);
       break;
     case 1: // closed subpath bezier knot, linked
@@ -65,15 +65,15 @@ PSD.PathRecord.prototype.parse = function(stream) {
         "\nCtrlPoint:",   stream.readInt32() / 0x1000000, stream.readInt32() / 0x1000000
       );
       /
-      goog.global.console.log('record type: subpath bezier knot, opened:', (type === 4 || type === 5), ', linked:', (type === 1|| type === 4));
+      console.log('record type: subpath bezier knot, opened:', (type === 4 || type === 5), ', linked:', (type === 1|| type === 4));
       break;
     case 6: // path fill rule record
-      goog.global.console.log('record type: path fill rule record');
+      console.log('record type: path fill rule record');
       stream.seek(24);
       break;
     case 7: // clipboard record
-      goog.global.console.log('clipboard record');
-      goog.global.console.log(
+      console.log('clipboard record');
+      console.log(
         "\ttop:", stream.readInt32() / 0x1000000,
         "\nleft:", stream.readInt32() / 0x1000000,
         "\nbottom:", stream.readInt32() / 0x1000000,
@@ -83,12 +83,12 @@ PSD.PathRecord.prototype.parse = function(stream) {
       stream.seek(4);
       break;
     case 8: // initial fill rule record
-      goog.global.console.log('initial fill rule record');
-      goog.global.console.log("initial:", stream.readInt16());
+      console.log('initial fill rule record');
+      console.log("initial:", stream.readInt16());
       stream.seek(22);
       break;
     default: // unknown
-      goog.global.console.warn('unknown path record type:', type);
+      console.warn('unknown path record type:', type);
       break;
   }
   */

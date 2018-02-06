@@ -54,7 +54,7 @@ PSD.Descriptor.prototype.parse = function(stream) {
     type = stream.readString(4);
 
     if (typeof PSD.Descriptor[type] !== 'function') {
-      goog.global.console.warn('OSType Key not implemented:', type);
+      console.warn('OSType Key not implemented:', type);
       //console.log(hoge, String.fromCharCode.apply(null, hoge));
       break;
     }

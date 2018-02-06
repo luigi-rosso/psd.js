@@ -29,7 +29,7 @@ PSD.Descriptor['ObAr'].prototype.parse = function(stream) {
 
   this.offset = stream.tell();
 
-  goog.global.console.warn('OSType key not implemented (undocumented): ObAr(ObjectArray?)');
+  console.warn('OSType key not implemented (undocumented): ObAr(ObjectArray?)');
 
   this.length = stream.tell() - this.offset;
 };

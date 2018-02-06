@@ -40,14 +40,14 @@ PSD.AdditionalLayerInfo.prototype.parse = function(stream, header) {
     this.info = new (PSD.AdditionalLayerInfo[this.key])();
     this.info.parse(stream, length, header);
   } else {
-    goog.global.console.warn('additional layer information: not implemented', this.key);
+    console.warn('additional layer information: not implemented', this.key);
   }
 
   // error check
   if (stream.tell() - (this.offset + this.length) !== 0) {
     if (!COMPILED) {
       //   console.log(stream.fetch(stream.tell(), (this.offset + this.length)), this.offset + this.length);
-      goog.global.console.log(this.key, stream.tell() - (this.offset + this.length));
+      console.log(this.key, stream.tell() - (this.offset + this.length));
     }
   }
 

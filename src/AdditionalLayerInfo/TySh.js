@@ -61,7 +61,7 @@ PSD.AdditionalLayerInfo['TySh'].prototype.parse = function(stream) {
 
   // parse failure
   if (this.textData.items !== this.textData.item.length) {
-    goog.global.console.error('Descriptor parsing failed');
+    console.error('Descriptor parsing failed');
     return;
   }
 
@@ -72,7 +72,7 @@ PSD.AdditionalLayerInfo['TySh'].prototype.parse = function(stream) {
 
 
   // TODO: 4 Byte * 4?
-  goog.global.console.log('TySh implementation is incomplete');
+  console.log('TySh implementation is incomplete');
   this.left = stream.readInt32();
   this.top = stream.readInt32();
   this.right = stream.readInt32();
@@ -85,7 +85,7 @@ PSD.AdditionalLayerInfo['TySh'].prototype.parse = function(stream) {
   this.bottom = stream.readFloat64();
 
   stream.seek(-32);
-  goog.global.console.log('64 or 32:',
+  console.log('64 or 32:',
     this.left,
     this.top,
     this.right,

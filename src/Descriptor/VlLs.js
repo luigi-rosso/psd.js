@@ -36,7 +36,7 @@ PSD.Descriptor['VlLs'].prototype.parse = function(stream) {
   for (i = 0; i < items; ++i) {
     type = stream.readString(4);
     if (typeof PSD.Descriptor[type] !== 'function') {
-      goog.global.console.error('OSType Key not implemented:', type);
+      console.error('OSType Key not implemented:', type);
       return;
     }
 

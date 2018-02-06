@@ -43,7 +43,7 @@ PSD.AdditionalLayerInfo['lrFX'].prototype.parse = function(stream) {
     // signature
     signature = stream.readString(4);
     if (signature !== '8BIM') {
-      goog.global.console.warn('invalid signature:', signature);
+      console.warn('invalid signature:', signature);
       break;
     }
 
@@ -56,7 +56,7 @@ PSD.AdditionalLayerInfo['lrFX'].prototype.parse = function(stream) {
         effect: effect
       };
     } else {
-      goog.global.console.warn('detect unknown key:', key);
+      console.warn('detect unknown key:', key);
       break;
     }
   }

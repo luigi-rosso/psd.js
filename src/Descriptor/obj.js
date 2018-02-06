@@ -42,7 +42,7 @@ PSD.Descriptor['obj '].prototype.parse = function(stream) {
     type = PSD.Descriptor['obj '].Table[key];
 
     if (typeof PSD.Descriptor[type] !== 'function') {
-      goog.global.console.error('OSType Key not implemented:', type);
+      console.error('OSType Key not implemented:', type);
       return;
     }
 
